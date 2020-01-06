@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
+	html2 "gitgo/src/test/html"
 	"golang.org/x/net/html"
 	"os"
+	"strings"
 )
 
 func main() {
-	doc, err := html.Parse(os.Stdin)
+	featch := html2.Featch()
+	doc, err := html.Parse(strings.NewReader(string(featch)))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "findlinks1: %v\n", err)
 		os.Exit(1)
